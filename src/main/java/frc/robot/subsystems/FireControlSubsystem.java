@@ -1,8 +1,10 @@
 package frc.robot.subsystems;
 
+import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.SimpleMotorFeedforward;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotTelemetry;
+import frc.robot.constants.SpeedConstants;
 import org.littletonrobotics.junction.Logger;
 
 public class FireControlSubsystem extends SubsystemBase {
@@ -27,6 +29,13 @@ public class FireControlSubsystem extends SubsystemBase {
    * @param targetRPM The target RPM for the flywheel.
    */
   public void setShooterRPM(double targetRPM) {
+    if (!Double.isFinite(targetRPM)) {
+      stop();
+      return;
+    }
+
+    targetRPM = MathUtil.clamp(targetRPM, 0.0, SpeedConstants.FIRE_MAX_SPEED);
+
     if (targetRPM <= 0) {
       targetRPM = m_spinDownLimiter.calculate(0);
       if (targetRPM < 50) {

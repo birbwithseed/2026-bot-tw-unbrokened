@@ -103,21 +103,22 @@ public class RobotContainer {
     m_controller1
         .a()
         .and(() -> !m_flightstick.button(Constants.JOYSTICK_DEFAULT_BUTTON).getAsBoolean())
-        .toggleOnTrue(new RunCommand(() -> m_intakeSubsystem.setRunSpeed(1.0), m_intakeSubsystem));
+        .toggleOnTrue(runIntake(1.0));
     m_controller1
         .leftTrigger()
         .and(() -> !m_flightstick.button(Constants.JOYSTICK_DEFAULT_BUTTON).getAsBoolean())
-        .whileTrue(new RunCommand(() -> m_intakeSubsystem.setRunSpeed(-1.0), m_intakeSubsystem));
+        .whileTrue(runIntake(-1.0));
 
     // Fire Override
     m_controller1
         .rightTrigger()
         .and(() -> !m_turretSubsystem.isUnwinding())
         .whileTrue(
-            new edu.wpi.first.wpilibj2.command.StartEndCommand(
-                () -> m_fireSubsystem.setShooterRPM(5000.0),
-                () -> m_fireSubsystem.stop(),
-                m_fireSubsystem));
+            new FireCommand(
+                m_fireSubsystem,
+                m_loaderSubsystem,
+                () -> 1.0,
+                m_controller1.rightTrigger().and(() -> !m_turretSubsystem.isUnwinding())));
 
     // Default Drive
     m_driveSubsystem.setDefaultCommand(m_defaultDrive);
@@ -140,7 +141,7 @@ public class RobotContainer {
 
     // Loader Default Command
     m_loaderSubsystem.setDefaultCommand(
-        new RunCommand(() -> m_loaderSubsystem.setLoaderSpeed(0.0), m_loaderSubsystem));
+        new RunCommand(() -> m_loaderSubsystem.stop(), m_loaderSubsystem));
 
     // Fire Control Command (Bind to Trigger / Button 1 of flight stick)
     // Run at Y-axis speed or SmartDashboard override while trigger is held. Loader feeds at 100%.
@@ -161,28 +162,37 @@ public class RobotContainer {
                 m_flightstick.button(Constants.JOYSTICK_DEFAULT_BUTTON)));
 
     // Intake on Flight Stick (Button 6) - Toggle
-    m_flightstick
-        .button(6)
-        .toggleOnTrue(new RunCommand(() -> m_intakeSubsystem.setRunSpeed(1.0), m_intakeSubsystem));
+    m_flightstick.button(6).toggleOnTrue(runIntake(1.0));
 
     // Loader 1 & 2 on Flight Stick (Button 7) - Toggle
-    m_flightstick
-        .button(7)
-        .toggleOnTrue(
-            new RunCommand(() -> m_loaderSubsystem.setLoaderSpeed(1.0), m_loaderSubsystem));
+    m_flightstick.button(7).toggleOnTrue(runLoader(1.0));
 
     // Intake Pivot Manual Control (Buttons 9 and 10)
     m_flightstick
         .button(9)
-        .whileTrue(new RunCommand(() -> m_intakeSubsystem.setPivotSpeed(-1.0), m_intakeSubsystem));
+        .whileTrue(
+            new RunCommand(() -> m_intakeSubsystem.setPivotSpeed(-1.0), m_intakeSubsystem)
+                .finallyDo(m_intakeSubsystem::stopPivot));
     m_flightstick
         .button(10)
-        .whileTrue(new RunCommand(() -> m_intakeSubsystem.setPivotSpeed(1.0), m_intakeSubsystem));
+        .whileTrue(
+            new RunCommand(() -> m_intakeSubsystem.setPivotSpeed(1.0), m_intakeSubsystem)
+                .finallyDo(m_intakeSubsystem::stopPivot));
 
-    // Intake System operates on buttons now. Default command is removed to avoid slider conflicts.
+    // Intake system operates on buttons now; the slider command is not bound.
 
     // Emergency Unjam (Button 12)
     m_flightstick.button(12).onTrue(new UnjamIntakeCommand(m_intakeSubsystem));
+  }
+
+  private Command runIntake(double speed) {
+    return new RunCommand(() -> m_intakeSubsystem.setRunSpeed(speed), m_intakeSubsystem)
+        .finallyDo(m_intakeSubsystem::stop);
+  }
+
+  private Command runLoader(double speed) {
+    return new RunCommand(() -> m_loaderSubsystem.setLoaderSpeed(speed), m_loaderSubsystem)
+        .finallyDo(m_loaderSubsystem::stop);
   }
 
   public void disabledInit() {
