@@ -1,0 +1,112 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.680366666666667,
+        "y": 1.9594333333333327
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.898900424753876,
+        "y": 2.5592388231888727
+      },
+      "isLocked": false,
+      "linkedName": "Trench Start"
+    },
+    {
+      "anchor": {
+        "x": 5.4636000000000005,
+        "y": 2.719499999999999
+      },
+      "prevControl": {
+        "x": 4.6553451820849645,
+        "y": 2.2463822542809804
+      },
+      "nextControl": {
+        "x": 5.679354434981863,
+        "y": 2.845793403571433
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 5.941077777777777,
+        "y": 3.3139111111111106
+      },
+      "prevControl": {
+        "x": 5.783625775456303,
+        "y": 3.1083764051746665
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Close Neutral Start"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.23734439834025278,
+      "rotationDegrees": 59.99999999999999
+    }
+  ],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 0.00893300248140108,
+      "maxWaypointRelativePos": 0.580645161290338,
+      "constraints": {
+        "maxVelocity": 2.0,
+        "maxAcceleration": 3.0,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
+  "pointTowardsZones": [],
+  "eventMarkers": [
+    {
+      "name": "Bump Angle for right hub start",
+      "waypointRelativePos": 0.11612903225806823,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "IntakeArmBumpAngle"
+        }
+      }
+    },
+    {
+      "name": "Extend for right neutral",
+      "waypointRelativePos": 0.6699751861042116,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "ExtendAndIntake"
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 3.5,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 3.0,
+    "rotation": 23.55226367289463
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": false
+}

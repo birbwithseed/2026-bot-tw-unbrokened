@@ -1,0 +1,126 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.144422222222222,
+        "y": 5.438199999999999
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 4.3332444444444445,
+        "y": 5.993633333333333
+      },
+      "isLocked": false,
+      "linkedName": "Opposite Scoring Point"
+    },
+    {
+      "anchor": {
+        "x": 5.67,
+        "y": 5.340755555555555
+      },
+      "prevControl": {
+        "x": 5.67,
+        "y": 6.007734127499283
+      },
+      "nextControl": {
+        "x": 5.67,
+        "y": 4.756088888888888
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 5.67,
+        "y": 2.427166666666666
+      },
+      "prevControl": {
+        "x": 5.732504634033143,
+        "y": 3.1360276587916958
+      },
+      "nextControl": {
+        "x": 5.640766666666667,
+        "y": 2.0956333333333323
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.183,
+        "y": 2.671
+      },
+      "prevControl": {
+        "x": 4.177333333333333,
+        "y": 2.5441
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Scoring Point"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.5,
+      "rotationDegrees": -59.99999999999999
+    },
+    {
+      "waypointRelativePos": 0.9535269709543471,
+      "rotationDegrees": -90.0
+    },
+    {
+      "waypointRelativePos": 1.879668049792531,
+      "rotationDegrees": -90.0
+    },
+    {
+      "waypointRelativePos": 2.143568464730289,
+      "rotationDegrees": 125.00000000000001
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [
+    {
+      "name": "Opposite scoring point bum angle",
+      "waypointRelativePos": 0,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "IntakeArmBumpAngle"
+        }
+      }
+    },
+    {
+      "name": "opposite extendAndIntake",
+      "waypointRelativePos": 0.7295285359801522,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "ExtendAndIntake"
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 3.5,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 3.0,
+    "rotation": 42.0282331684253
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -43.83086067209259
+  },
+  "useDefaultConstraints": true
+}

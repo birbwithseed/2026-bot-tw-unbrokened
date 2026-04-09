@@ -1,0 +1,116 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 6.116477777777778,
+        "y": 3.966788888888888
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 6.0092888888888885,
+        "y": 5.126377777777777
+      },
+      "isLocked": false,
+      "linkedName": "Hub Neutral Collect"
+    },
+    {
+      "anchor": {
+        "x": 5.609766666666667,
+        "y": 5.545388888888888
+      },
+      "prevControl": {
+        "x": 6.152757781231485,
+        "y": 5.269958613384994
+      },
+      "nextControl": {
+        "x": 4.9374,
+        "y": 5.886444444444444
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 3.144422222222222,
+        "y": 5.438199999999999
+      },
+      "prevControl": {
+        "x": 4.352733333333333,
+        "y": 6.237244444444444
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Opposite Scoring Point"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.8448132780083084,
+      "rotationDegrees": 156.02815132398544
+    },
+    {
+      "waypointRelativePos": 1.3858921161825706,
+      "rotationDegrees": -84.11272205581872
+    }
+  ],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 0.9320099255583185,
+      "maxWaypointRelativePos": 1.35,
+      "constraints": {
+        "maxVelocity": 2.5,
+        "maxAcceleration": 3.0,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
+  "pointTowardsZones": [],
+  "eventMarkers": [
+    {
+      "name": "Disable intake for opposite scoring point",
+      "waypointRelativePos": 1.2049627791563242,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "DisableIntake"
+        }
+      }
+    },
+    {
+      "name": "Ramp up shooter for opposite scoring point",
+      "waypointRelativePos": 1.5503722084367193,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "RampUpShooterForAutoScore"
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 3.5,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -43.83086067209259
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 90.0
+  },
+  "useDefaultConstraints": false
+}

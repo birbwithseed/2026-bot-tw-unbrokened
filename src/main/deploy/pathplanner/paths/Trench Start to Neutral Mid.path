@@ -1,0 +1,89 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.680366666666667,
+        "y": 1.9594333333333327
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 4.420944444444444,
+        "y": 2.3492111111111114
+      },
+      "isLocked": false,
+      "linkedName": "Trench Start"
+    },
+    {
+      "anchor": {
+        "x": 7.9971555555555565,
+        "y": 3.469822222222222
+      },
+      "prevControl": {
+        "x": 6.087244444444444,
+        "y": 2.836433333333334
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Neutral Mid"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 0.3029045643153558,
+      "rotationDegrees": 70.0
+    },
+    {
+      "waypointRelativePos": 0.6614107883817462,
+      "rotationDegrees": 16.009821056487084
+    }
+  ],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 0,
+      "maxWaypointRelativePos": 0.5627791563275399,
+      "constraints": {
+        "maxVelocity": 2.0,
+        "maxAcceleration": 3.0,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
+  "pointTowardsZones": [],
+  "eventMarkers": [
+    {
+      "name": "Extend to Mid",
+      "waypointRelativePos": 0.4416873449131536,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "ExtendAndIntake"
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 3.5,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0.0,
+    "rotation": 13.360218444764495
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 3.0,
+    "rotation": 0.0
+  },
+  "useDefaultConstraints": true
+}

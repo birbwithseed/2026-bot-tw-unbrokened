@@ -1,0 +1,80 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 6.0385222222222215,
+        "y": 6.061844444444444
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 5.434366666668296,
+        "y": 5.652577777777776
+      },
+      "isLocked": false,
+      "linkedName": "Close Opposite Neutral"
+    },
+    {
+      "anchor": {
+        "x": 3.144422222222222,
+        "y": 5.438199999999999
+      },
+      "prevControl": {
+        "x": 3.436755555555555,
+        "y": 5.983888888888889
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Opposite Scoring Point"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [
+    {
+      "name": "Constraints Zone",
+      "minWaypointRelativePos": 0.15,
+      "maxWaypointRelativePos": 0.55,
+      "constraints": {
+        "maxVelocity": 2.5,
+        "maxAcceleration": 3.0,
+        "maxAngularVelocity": 540.0,
+        "maxAngularAcceleration": 720.0,
+        "nominalVoltage": 12.0,
+        "unlimited": false
+      }
+    }
+  ],
+  "pointTowardsZones": [],
+  "eventMarkers": [
+    {
+      "name": "Ramp up shooter for left scoring point",
+      "waypointRelativePos": 0.45,
+      "endWaypointRelativePos": null,
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "RampUpShooterForAutoScore"
+        }
+      }
+    }
+  ],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -43.83086067209259
+  },
+  "reversed": false,
+  "folder": null,
+  "idealStartingState": {
+    "velocity": 3.5,
+    "rotation": -119.4274564033082
+  },
+  "useDefaultConstraints": false
+}

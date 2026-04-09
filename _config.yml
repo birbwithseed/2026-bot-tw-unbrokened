@@ -1,0 +1,5 @@
+theme: jekyll-theme-cayman
+title: 2026-bot
+description: Miami Beach Bots (FRC Team 2026) - Aut viam inveniam aut faciam.
+plugins:
+  - jekyll-relative-links
